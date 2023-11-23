@@ -12,10 +12,24 @@ var corrente = 1;
 
 // creazione funzione per mandare avanti le immagini
 function succ(){
-
+    corrente++;
+    if(corrente>n_img){
+        corrente = 1;
+    };
+    for(var i = n_img; i > 0; i--){
+        document.querySelector("#img_slider img:nth-child(" + i +")").style.display ="none";
+    }
+    document.querySelector("#img_slider img:nth-child(" + corrente +")").style.display ="block";
 }
 
 // creazione funzione per mandare in dietro le immagini
 function prec(){
-    
-}
+    corrente--;
+    if(corrente == 0){
+        corrente = 1;
+    };
+    for(var i = n_img; i > 0; i--){
+        document.querySelector("#img_slider img:nth-child(" + i +")").style.display ="none";
+    }
+    document.querySelector("#img_slider img:nth-child(" + corrente +")").style.display ="block";
+};
